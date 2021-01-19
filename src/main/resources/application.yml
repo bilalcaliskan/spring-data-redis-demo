@@ -1,0 +1,32 @@
+---
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  server:
+    port: ${MANAGEMENT_PORT:8081}
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+spring-data-redis-demo:
+  redis:
+    master: ${REDIS_MASTER:sample-cluster}
+    nodes: ${REDIS_NODES:node01:16379,node02:16379,node03:16379}
+    keyPrefix: ${KEY_PREFIX:spring-data-redis-demo_}
+    poolMinIdle: ${REDIS_POOL_MIN_IDLE:32}
+    poolMaxIdle: ${REDIS_POOL_MAX_IDLE:64}
+    poolMaxTotal: ${REDIS_POOL_MAX_TOTAL:128}
+    poolMaxWaitMillis: ${REDIS_POOL_MAX_WAIT_MILLIS:2000}
+    keyExpireMinutes: ${KEY_EXPIRE_MINUTES:60}
+    fixedDelayMillis: ${FIXED_DELAY_MILLIS:1000}
+    timeoutMillis: ${TIMEOUT_MILLIS:1000}
+
+info:
+  build:
+    name: @project.name@
+    description: @project.description@
+    group: @project.groupId@
+    artifact: @project.artifactId@
+    version: @project.version@
